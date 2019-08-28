@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+读入libsvm类型的数据，拆分为特征和目标值
+"""
 from sklearn.datasets import load_svmlight_file
 from collections import Counter
 import numpy as np
@@ -16,4 +19,4 @@ class DataSet:
 
 
 if __name__ == "__main__":
-    dataset = DataSet()
+    dataset = DataSet('out_result/feature_importance_dt_0826.csv')
