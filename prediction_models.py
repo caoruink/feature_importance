@@ -21,7 +21,7 @@ class Predictors(DataSet):
 
     def train_model(self):
         """
-        Train with a model and make a five-fold cross-validation to draw a ROC graph based on the predicted results.
+        Train with a model and make a ten-fold cross-validation.
         :return:
         """
         kf = KFold(n_splits=10, shuffle=True)
@@ -36,7 +36,7 @@ class Predictors(DataSet):
 
     def test_specific_model(self, clf, x_train, x_test, y_train, y_test, clf_name=None):
         """
-        train a model
+        train a model, and get feature_importance
         :param clf: model
         :param x_train:
         :param x_test:
@@ -81,6 +81,8 @@ class Predictors(DataSet):
 
 
 if __name__ == '__main__':
+    # outfile
     file = open("out_result/feature_importance_dt_0826.csv", 'w')
+    # read infile and train a predictor
     predictor = Predictors('in_data/libsvm_data_0826.txt')
     file.close()
